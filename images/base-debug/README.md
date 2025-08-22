@@ -7,17 +7,18 @@ Other specialized debugging images (e.g., for Java, k8s ..) can extend this base
 
 ## Contents
 
-| Package           | Description                                                                     |
-| ----------------- | ------------------------------------------------------------------------------- |
-| `ca-certificates` | Contains SSL certificates to allow tools like `curl` to access HTTPS sites.     |
-| `curl` & `wget`   | Used to make HTTP requests to test endpoints or download files from the web.    |
-| `git`             | Allows you to clone repositories or inspect Git-related files.                  |
+| Package           | Description                                                                         |
+|-------------------|-------------------------------------------------------------------------------------|
+| `ca-certificates` | Contains SSL certificates to allow tools like `curl` to access HTTPS sites.         |
+| `curl` & `wget`   | Used to make HTTP requests to test endpoints or download files from the web.        |
+| `git`             | Allows you to clone repositories or inspect Git-related files.                      |
 | `procps`          | Provides `ps` and `top` to view and monitor running processes inside the container. |
-| `net-tools`       | Includes classic networking tools like `netstat` and `ifconfig`.                |
-| `iproute2`        | Provides modern networking tools like `ss` and `ip` for inspecting sockets/routes.|
-| `dnsutils`        | Contains `dig` and `nslookup` for diagnosing DNS resolution issues.             |
-| `unzip` & `zip`   | For creating and extracting zip archives.                                       |
-| `vim-tiny`        | A minimal but powerful text editor for viewing or editing configuration files.  |
+| `net-tools`       | Includes classic networking tools like `netstat` and `ifconfig`.                    |
+| `iproute2`        | Provides modern networking tools like `ss` and `ip` for inspecting sockets/routes.  |
+| `dnsutils`        | Contains `dig` and `nslookup` for diagnosing DNS resolution issues.                 |
+| `unzip` & `zip`   | For creating and extracting zip archives.                                           |
+| `openssl`         | Certificates, SSH and other cryptographic things                                    |
+| `vim-tiny`        | A minimal but powerful text editor for viewing or editing configuration files.      |
 
 
 ## Key Features

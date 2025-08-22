@@ -6,7 +6,7 @@ It builds upon the `base-debug` image.
 ## Key Features
 
 * **Advanced Network Analysis**: Equipped with tools like `nmap` for port scanning and `tcpdump` for deep packet inspection.
-* **Secure by Design**: Inherits the non-root `appuser` from the base image for all operations.
+* **Secure by Design**: Inherits the non-root `debuguser` from the base image for all operations.
 
 ---
 

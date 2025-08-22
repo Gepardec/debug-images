@@ -15,6 +15,7 @@ RUN apt-get update && \
     dnsutils \
     unzip \
     zip \
+    openssl \
     vim-tiny && \
     # Clean up the apt cache to reduce image size
     apt-get clean && \
