@@ -38,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.ORGANISATION }}/base-debug
+          images: ${{ env.REGISTRY }}/${{ env.ORGANISATION }}/debug-images/base-debug
           tags: |
             # Tag with 'latest'
             type=raw,value=latest,enable=true
@@ -90,7 +90,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.ORGANISATION }}/${{ matrix.image }}
+          images: ${{ env.REGISTRY }}/${{ env.ORGANISATION }}/debug-images/${{ matrix.image }}
           tags: |
             # Tag with 'latest'
             type=raw,value=latest,enable=true
