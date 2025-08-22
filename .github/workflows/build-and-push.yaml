@@ -40,13 +40,13 @@ jobs:
             # Tag with 'latest'
             type=raw,value=latest,enable=true
             # Tag with a short hash of the Containerfile content
-            type=sha,prefix=df-,suffix=,format=short,target=./images/base/Containerfile
+            type=sha,prefix=df-,suffix=,format=short,target=./images/base-debug/Containerfile
 
       - name: Build and push base image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./images/base/Containerfile
+          file: ./images/base-debug/Containerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -99,5 +99,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           # This build-arg now safely references the base image pushed in the previous job
-          build-args: |
-            BASE_IMAGE=${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/base:latest
+#          build-args: |
+#            BASE_IMAGE=${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/base:latest
