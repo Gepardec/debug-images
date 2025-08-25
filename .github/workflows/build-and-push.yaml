@@ -43,7 +43,7 @@ jobs:
             # Tag with 'latest'
             type=raw,value=latest,enable=true
             # Tag with a short hash of the Containerfile content
-            type=sha,prefix=df-,suffix=,format=short,target=./images/base-debug/Containerfile
+            type=sha,prefix=,suffix=,format=short,target=./images/base-debug/Containerfile
 
       - name: Build and push base image
         uses: docker/build-push-action@v5
@@ -95,7 +95,7 @@ jobs:
             # Tag with 'latest'
             type=raw,value=latest,enable=true
             # Tag with a short hash of the Containerfile content
-            type=sha,prefix=df-,suffix=,format=short,target=./images/${{ matrix.image }}/Containerfile
+            type=sha,prefix=,suffix=,format=short,target=./images/${{ matrix.image }}/Containerfile
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
