@@ -49,7 +49,7 @@ jobs:
             # Tag with 'latest'
             type=raw,value=latest,enable=true
             # Tag with a short hash of the Containerfile calculated in a previous step
-            type=raw,value=df-${{ steps.file_hash.outputs.sha }},enable=true
+            type=raw,value=cf-${{ steps.file_hash.outputs.sha }},enable=true
 
       - name: Build and push base image
         uses: docker/build-push-action@v5
@@ -107,7 +107,7 @@ jobs:
             # Tag with 'latest'
             type=raw,value=latest,enable=true
             # Tag with a short hash of the Containerfile calculated in a previous step
-            type=raw,value=df-${{ steps.file_hash.outputs.sha }},enable=true
+            type=raw,value=cf-${{ steps.file_hash.outputs.sha }},enable=true
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
