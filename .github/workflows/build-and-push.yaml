@@ -25,7 +25,7 @@ jobs:
         id: file_hash
         run: |
           # Calculate a sha256 hash and take the first 8 characters
-          echo "sha=$(shasum -a 256 images/base-debug/Dockerfile | head -c 8)" >> $GITHUB_OUTPUT
+          echo "sha=$(shasum -a 256 images/base-debug/Containerfile | head -c 8)" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -83,7 +83,7 @@ jobs:
         id: file_hash
         run: |
           # Calculate a sha256 hash and take the first 8 characters
-          echo "sha=$(shasum -a 256 images/base-debug/Dockerfile | head -c 8)" >> $GITHUB_OUTPUT
+          echo "sha=$(shasum -a 256 images/${{ matrix.image }}/Containerfile | head -c 8)" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
