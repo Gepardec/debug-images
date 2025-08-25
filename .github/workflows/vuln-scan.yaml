@@ -32,7 +32,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./images/${{ matrix.image }}/Dockerfile
+          file: ./images/${{ matrix.image }}/Containerfile
           # Load the image into the local Docker daemon, don't push it
           load: true
           # Generate a temporary, unique tag for the local image
