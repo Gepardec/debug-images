@@ -26,7 +26,7 @@ RUN apt-get update && \
 RUN groupadd --gid 1001 debuguser && \
     useradd --uid 1001 --gid 1001 --shell /bin/bash --create-home debuguser
 
-# Switch to the non-root user. Any subsequent commands will run as 'debuguser'.
+# Switch to the non-root user. Any subsequent commands will run as 'debuguser'
 USER debuguser
 
 # Set the home directory as the default working directory.
