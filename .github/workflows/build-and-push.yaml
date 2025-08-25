@@ -21,6 +21,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Hash Dockerfile
+        id: file_hash
+        run: |
+          # Calculate a sha256 hash and take the first 8 characters
+          echo "sha=$(shasum -a 256 images/base-debug/Dockerfile | head -c 8)" >> $GITHUB_OUTPUT
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -42,8 +48,8 @@ jobs:
           tags: |
             # Tag with 'latest'
             type=raw,value=latest,enable=true
-            # Tag with a short hash of the Containerfile content
-            type=sha,prefix=,suffix=,format=short,target=./images/base-debug/Containerfile
+            # Tag with a short hash of the Containerfile calculated in a previous step
+            type=raw,value=df-${{ steps.file_hash.outputs.sha }},enable=true
 
       - name: Build and push base image
         uses: docker/build-push-action@v5
@@ -73,6 +79,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Hash Dockerfile
+        id: file_hash
+        run: |
+          # Calculate a sha256 hash and take the first 8 characters
+          echo "sha=$(shasum -a 256 images/base-debug/Dockerfile | head -c 8)" >> $GITHUB_OUTPUT
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -94,8 +106,8 @@ jobs:
           tags: |
             # Tag with 'latest'
             type=raw,value=latest,enable=true
-            # Tag with a short hash of the Containerfile content
-            type=sha,prefix=,suffix=,format=short,target=./images/${{ matrix.image }}/Containerfile
+            # Tag with a short hash of the Containerfile calculated in a previous step
+            type=raw,value=df-${{ steps.file_hash.outputs.sha }},enable=true
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
